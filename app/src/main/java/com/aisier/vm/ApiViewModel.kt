@@ -25,7 +25,7 @@ class ApiViewModel : BaseViewModel() {
 //    val wxArticleLiveData = StateMutableLiveData<List<WxArticleBean>>()
 
     private val _uiState = MutableStateFlow<ApiResponse<List<WxArticleBean>>>(ApiResponse())
-    val uiState: StateFlow<ApiResponse<List<WxArticleBean>>> = _uiState.asStateFlow()
+    val uiState: StateFlow<ApiResponse<List<WxArticleBean>>> get() =  _uiState.asStateFlow()
 
     suspend fun requestNet() {
         _uiState.value = repository.fetchWxArticleFromNet()
