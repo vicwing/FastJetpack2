@@ -1,5 +1,6 @@
 package com.aisier.vm
 
+import android.util.Log
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.aisier.architecture.base.BaseViewModel
@@ -8,7 +9,10 @@ import com.aisier.bean.WxArticleBean
 import com.aisier.net.WxArticleRepository
 import com.aisier.network.entity.ApiResponse
 import com.aisier.network.observer.StateLiveData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * <pre>
@@ -47,12 +51,26 @@ class ApiViewModel : BaseViewModel() {
         }
     }
 
+    /**
+     * 多个数据源
+     */
     fun requestFromNet() {
-        viewModelScope.launch {
-            apiLiveData.value = repository.fetchWxArticleFromNet()
+        Log.d("TAG", "主线程  之前 "+Thread.currentThread().name)
+        viewModelScope.launch(Dispatchers.Main) {
+            Log.d("TAG", "launch  executeHttp  之前 "+Thread.currentThread().name)
+//            apiLiveData.value = repository.fetchWxArticleFromNet()
+            sortList()
+            Log.i("TAG", "launch  executeHttp  之后 "+Thread.currentThread().name)
+
         }
+        Log.i("TAG", "主线程  after "+Thread.currentThread().name)
     }
 
+    suspend fun sortList() = withContext(Dispatchers.IO) {
+        Log.d("TAG", "launch  sortList  之前 "+Thread.currentThread().name)
+        // Heavy work
+        delay(5000)
+    }
     fun requestFromDb() {
         viewModelScope.launch {
             dbLiveData.value = repository.fetchWxArticleFromDb()
