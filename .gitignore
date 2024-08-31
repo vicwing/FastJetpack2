@@ -83,3 +83,12 @@ lint/tmp/
 /.idea/shelf/
 /.idea/codeStyles/
 /.idea/
+<<<<<<< HEAD
+=======
+
+# Project exclude paths
+/app/
+/base/
+/gradle/
+/network/
+>>>>>>> 8fcade1f860a3fb02601f7a84ab13f36fb0a1e34
