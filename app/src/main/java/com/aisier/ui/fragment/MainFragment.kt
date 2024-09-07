@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
 import com.aisier.R
 import com.aisier.architecture.base.BaseFragment
@@ -23,4 +24,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             requireActivity().startActivity(Intent(requireActivity(), SecondActivity::class.java))
         }
     }
+
+//    override val lifecycle: Lifecycle
+//        get() = TODO("Not yet implemented")
 }

@@ -26,6 +26,8 @@ import com.dylanc.viewbinding.binding
  */
 class NetListFragment : BaseFragment(R.layout.fragment_net_list) {
 
+    private val TAG: String?=this::class.java.simpleName
+
     // navigation情况下不能用Activity的ViewModel
     private val mViewModel by viewModels<ApiViewModel>()
     private val mBinding: FragmentNetListBinding by binding()
@@ -34,6 +36,7 @@ class NetListFragment : BaseFragment(R.layout.fragment_net_list) {
         super.onViewCreated(view, savedInstanceState)
         initData()
         initObserver()
+        Log.e(TAG, "onViewCreated: ")
     }
 
     private fun initObserver() {

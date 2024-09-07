@@ -3,6 +3,8 @@ package com.aisier.architecture.base
 import android.app.ProgressDialog
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleRegistry
 import com.aisier.architecture.anno.FragmentConfiguration
 
 /**
@@ -12,6 +14,12 @@ import com.aisier.architecture.anno.FragmentConfiguration
  * version: 1.1
  */
 abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId), IUiView {
+    override val lifecycle: Lifecycle
+        get() = getFielLifeCycle()
+
+    fun getFielLifeCycle(): Lifecycle {
+        return  LifecycleRegistry(this)
+    }
 
     private var useEventBus = false
 

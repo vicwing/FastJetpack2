@@ -4,10 +4,11 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleRegistry
 import com.aisier.architecture.ktx.toast
 import com.aisier.network.SHOW_TOAST
 import com.jeremyliao.liveeventbus.LiveEventBus
-import com.ldlywt.colorful.ColorTheme
 
 /**
  * <pre>
@@ -18,9 +19,18 @@ import com.ldlywt.colorful.ColorTheme
 </pre> *
  */
 abstract class BaseActivity(@LayoutRes contentLayoutId: Int) : AppCompatActivity(contentLayoutId), IUiView {
-    
+//    override val lifecycle: Lifecycle
+//        get() = getFielLifeCycle()
+
+//    fun getFielLifeCycle(): Lifecycle {
+//        return  LifecycleRegistry(this)
+//    }
+
+//    override fun getLifecycle(): Lifecycle {
+//        return super.getLifecycle()
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
-        ColorTheme().applyTheme(this)
+//        ColorTheme().applyTheme(this)
         super.onCreate(savedInstanceState)
         observeUi()
     }
