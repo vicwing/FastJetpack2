@@ -25,6 +25,4 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         }
     }
 
-//    override val lifecycle: Lifecycle
-//        get() = TODO("Not yet implemented")
 }

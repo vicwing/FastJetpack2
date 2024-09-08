@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.aisier.R
@@ -19,11 +20,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
 
-class MainActivity : BaseActivity(R.layout.activity_home_bottom_navi) {
+class MainActivity : BaseActivity<ActivityHomeBottomNaviBinding>() {
 //class MainActivity : BaseActivity(R.layout.activity_home) {
 
     private val TAG: String? = this::class.java.simpleName
-    private val binding: ActivityHomeBottomNaviBinding by binding()
+//    private val binding: ActivityHomeBottomNaviBinding by binding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +33,6 @@ class MainActivity : BaseActivity(R.layout.activity_home_bottom_navi) {
     }
 
 
-//    override val lifecycle: Lifecycle
-//        get() = lifecycle
     /***
      *
      */
@@ -55,11 +54,10 @@ class MainActivity : BaseActivity(R.layout.activity_home_bottom_navi) {
 
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_vic) as NavHostFragment?
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_vic) as? NavHostFragment
         val navController = navHostFragment!!.navController
         setupWithNavController(bottomNavigationView, navController)
-
-        binding.viewPager2.visibility = View.GONE
+//        binding.viewPager2.visibility = View.GONE
 //        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_vic) as NavHostFragment
 //        val navController = navHostFragment.findNavController()
 //        navController.setGraph(R.navigation.nav_graph)

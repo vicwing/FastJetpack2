@@ -22,9 +22,9 @@
     </fragment>
     <fragment
         android:id="@+id/share_page"
-        android:name="com.aisier.ui.fragment.SecondFragment"
+        android:name="com.aisier.ui.fragment.ThirdFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_main">
 <!--        <action-->
 <!--            android:id="@+id/action_secondFragment_pop"-->
 <!--            app:popUpTo="@id/secondFragment"-->

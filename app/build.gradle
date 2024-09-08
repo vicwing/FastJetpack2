@@ -33,13 +33,15 @@ android {
     viewBinding {
         enabled = true
     }
+//    buildFeatures {
+//        viewBinding true
+//    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':base')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
-    implementation("com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.0.2")
 
 
 }
